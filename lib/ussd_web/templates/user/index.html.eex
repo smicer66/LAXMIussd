@@ -1,0 +1,146 @@
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.23/css/jquery.dataTables.css">
+
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.js"></script>
+
+</head>
+<div class="row">
+    <div class="col-xl-12">
+        <div id="panel-1" class="panel">
+            <div class="panel-hdr">
+                <h2>
+                <caption>Users</caption> 
+                </h2>
+                <div class="panel-toolbar text-right">
+                    <button class="btn btn-panel" data-action="panel-collapse" data-toggle="tooltip" data-offset="0,10" data-original-title="Collapse"></button>
+                    <button class="btn btn-panel" data-action="panel-fullscreen" data-toggle="tooltip" data-offset="0,10" data-original-title="Fullscreen"></button>
+                    <button class="btn btn-panel" data-action="panel-close" data-toggle="tooltip" data-offset="0,10" data-original-title="Close"></button>
+                </div>
+            </div>
+
+            <a href="#" class="header-icon" data-toggle="dropdown" title="Create New Account">
+                <button type="button" class="btn btn-dark btn-pills waves-effect waves-themed">Create User</button>
+            </a>
+            <div class="panel-container show">
+                <div class="panel-content example">
+                    <!-- datatable start -->
+                    <table class="dt-table dt-table-responsive table-bordered table-hover example">
+                        <thead class="color-success">
+                            <tr class="table-info">
+                                <th>Full Name</th>
+                                <th>Email Address</th>
+                                <th>Phone Number</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <%= for user <- @users do %>
+
+                        <tbody>
+                            <tr>
+                                <td><%= user.full_name  %></td>
+                                <td><%= user.email      %></td>
+                                <td><%= user.phone      %></td>
+                                <td><%= user.status     %></td>
+                            </tr>
+                        </tbody>
+                        <% end %>                        
+                        <tfoot class="color-success">
+                            <tr class="table-info">
+                                <th>Full Name</th>
+                                <th>Email Address</th>
+                                <th>Phone Number</th>
+                                <th>Status</th>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+            <a href="#" class="header-icon" data-toggle="dropdown" title="Create New Account">
+                <button type="button" class="btn btn-dark btn-pills waves-effect waves-themed">Create User</button>
+            </a>
+            <div class="dropdown-menu dropdown-menu-animated w-auto h-auto">
+            <div class="">
+                <form action="<%= Routes.user_path(@conn, :user_create)%>" method="post"> 
+                   
+                        <div class="panel-hdr">
+                            <h2>
+                                <caption>Creating New Users</caption> 
+                            </h2>
+                        </div>
+                    <div class="form-row p-4">
+                        <%# Full user names %>
+                        <div class="col-md-6 mb-2">
+                            <input type="hidden" Name="_csrf_token" value="<%= Plug.CSRFProtection.get_csrf_token()%>">
+                            <label class="form-label" for="validationServer01">Full Name</label>
+                            <input type="text" name="full_name" class="form-control" id="validationServer01" placeholder="Full Name" value="" required>
+                        </div>
+
+                        <%# Must be generated from Username%>
+                        <div class="col-md-4 mb-2">
+                            <label class="form-label" for="validationServer04">Login ID</label>
+                            <input type="text" class="form-control" id="validationServer03" placeholder="User Name" help-text="">
+                        </div>
+
+                        <%# User Email Address %>
+                        <div class="col-md-6 mb-2">
+                            <label class="form-label" for="validationServer02"> Email Address </label>
+                            <input type="email" name="email" class="form-control" id="validationServer02" placeholder="E-mail" value="" required>
+                        </div>
+                        
+                        <%# Users phone number %>
+                        <div class="col-md-6 mb-2">
+                            <label class="form-label" for="validationServerServer03">Phone</label>
+                            <div class="input-group">
+                                <input type="tel" id="phone" name="phone" class="form-control" placeholder="Phone" min=10 max=13>
+                            </div>
+                        </div>
+                        
+                        <%# User password %>
+                        <div class="col-md-6 mb-2">
+                            <label class="form-label" for="validationServer05">Password</label>
+                            <input type="password" name="password" class="form-control" id="validationServer04" placeholder="Password" required>
+                        </div>
+
+                         <%# Admin Creator of account %>
+                        <div class="col-md-6 mb-2">
+                        <label class="form-label" for="validationServer06">Created By</label>
+                            <select class="custom-select" id="validationServer05">
+                                <option selected hidden disabled>Admin Creator</option>
+                                <option value="">Benedict</option>
+                                <option value="">Gary</option>
+                                <option value="">Kangwa</option>
+                                <option value="">Lunje</option>
+                            </select>
+                        </div>
+                            <%# <div class="custom-control custom-switch">
+                                <input type="checkbox" class="custom-control-input" id="customSwitch2" checked="">
+                                <label class="custom-control-label" for="customSwitch2">Active</label>
+                            </div> %>
+                            <%# <label class="custom-control-label" for="customSwitch2">Active</label> %>
+                        
+                            <%# <label class="form-label" for="validationServer06">Status</label>
+                            <input type="text" name="status" class="form-control" id="validationServer04" placeholder="Status">
+                        </div> %>
+
+                        <%# <div class="col-md-4 mb-2">
+                            <label class="form-label" for="validationServer07">Created By</label>
+                            <input type="text" name="created_bytext" name="password" class="form-control" id="validationServer04" placeholder="Password">
+                        </div>" class="form-control" id="validationServer05" placeholder="Created By">
+                            </div>
+                        </div> %>
+                        <div class="form-group col-md-12 text-center">
+                            <button class="btn btn-md btn-primary btn-pills btn-block" title="Submit Form" type="submit">Submit</button>
+                        </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+
+
+$(document).ready(function(){
+  $("#example).DataTable();
+});
+</script>

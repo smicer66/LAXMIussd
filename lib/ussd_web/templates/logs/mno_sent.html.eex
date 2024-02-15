@@ -1,0 +1,54 @@
+<div id="panel-5" class="panel">
+    <div class="panel-hdr">
+        <h2>
+            <%# MNO Sent Logs %>
+        </h2>
+        <div class="panel-toolbar">
+            <button class="btn btn-panel" data-action="panel-collapse" data-toggle="tooltip" data-offset="0,10" data-original-title="Collapse"></button>
+            <button class="btn btn-panel" data-action="panel-fullscreen" data-toggle="tooltip" data-offset="0,10" data-original-title="Fullscreen"></button>
+            <button class="btn btn-panel" data-action="panel-close" data-toggle="tooltip" data-offset="0,10" data-original-title="Close"></button>
+        </div>
+    </div>
+    <div class="panel-container show">
+        <div class="panel-content">
+            <%# <div class="panel-tag">
+                MNO Sent Logs
+            </div> %>
+            <div id="mno_log" class="panel-hdr">
+                <h2>MNO Logs</h2>
+            </div>
+            <div class="frame-wrap">
+                <table id="dt-basic-example" class="table table-bordered table-hover table-striped w-100">
+                    <thead class="thead-themed">
+                        <tr>
+                            <th>#</th>
+                            <th>Request</th>
+                            <th>Responce</th>
+                            <th>Source</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">1</th>
+                            <td>Jhon</td>
+                            <td>Stone</td>
+                            <td>@jhon</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">2</th>
+                            <td>Lisa</td>
+                            <td>Nilson</td>
+                            <td>@lisa</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">3</th>
+                            <td>Larry</td>
+                            <td>the Bird</td>
+                            <td>@twitter</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

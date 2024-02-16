@@ -1,4 +1,9 @@
-# Ussd
+## About LAXMIussd
+
+LAXMIussd is a USSD application developed for LAXMI a microfinance bank providing traditional micro-finance banking services to members of the community.
+
+## Technical Details
+
 
 To start your Phoenix server:
 
